@@ -31,5 +31,6 @@ COPY --from=quay.io/ansible/receptor:devel /usr/bin/receptor /usr/bin/receptor
 RUN mkdir -p /var/run/receptor
 ADD run.sh /run.sh
 CMD /run.sh
+RUN echo "awx:x:1000:0:,,,:/var/lib/awx:/bin/bash" >> /etc/passwd
 USER 1000
 RUN git lfs install
